@@ -10,11 +10,19 @@ export class InfoPaginaService {
   info: InfoPaginaInterface = {}; //atributo de tipo interface InfoPaginaInterface
   datosCargados:boolean = false;
 
+  equipo: any[] = [];
+
   constructor( private http: HttpClient ) {
 
-    //console.log('servicio info-pagina.service.ts cargado');
+    this.cargarInfo();
 
-    //lleer archivo JSON peticion GET
+    this.cargarEquipo();
+
+
+  }
+
+  /*metodos*/
+  private cargarInfo(){ //leer archivo JSON peticion GET
     this.http.get('assets/data/data-pagina.json')
       .subscribe( (resp: InfoPaginaInterface) => {
 
@@ -22,7 +30,16 @@ export class InfoPaginaService {
         this.info = resp; //guardo respuesta en el atributo
         console.log(resp);
         //console.log(resp['email']);
-
-    });
+      });
   }
+
+  private cargarEquipo(){ //cargar equipo peticion HTTP GET
+   this.http.get('https://app-portafolio-ang-default-rtdb.firebaseio.com/equipo.json')
+     .subscribe( (resp: any[]) => {
+       this.equipo = resp;//guardo respuesta en el atributo
+       //console.log(resp);
+     });
+ }
+
+
 }
