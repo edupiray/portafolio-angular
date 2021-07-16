@@ -37,7 +37,6 @@ export class InfoPaginaService {
    this.http.get('https://app-portafolio-ang-default-rtdb.firebaseio.com/equipo.json')
      .subscribe( (resp: any[]) => {
        this.equipo = resp;//guardo respuesta en el atributo
-       //console.log(resp);
      });
  }
 
