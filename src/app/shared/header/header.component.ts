@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   //buscar productos (busqueda del header)
   buscarProducto(termino:string){
-    //console.log(termino);
     if(termino.length < 1){
       return;//si no escribo nada no hace la busqueda
     }

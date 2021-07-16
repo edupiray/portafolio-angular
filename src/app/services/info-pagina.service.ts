@@ -33,7 +33,7 @@ export class InfoPaginaService {
       });
   }
 
-  private cargarEquipo(){ //cargar equipo peticion HTTP GET ()
+  private cargarEquipo(){ //cargar equipo peticion HTTP GET
    this.http.get('https://app-portafolio-ang-default-rtdb.firebaseio.com/equipo.json')
      .subscribe( (resp: any[]) => {
        this.equipo = resp;//guardo respuesta en el atributo

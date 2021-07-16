@@ -25,7 +25,6 @@ export class ProductosService {
       //peticion http al indice de productos
       this.http.get('https://app-portafolio-ang-default-rtdb.firebaseio.com/productos_idx.json')
         .subscribe( (resp: ProductoInterface[]) => {
-          //console.log(resp);
           this.productos = resp;
           this.cargando = false;//para el loading de la vista
           resolve(); //indico que la promesa termino con éxito
